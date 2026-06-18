@@ -28,6 +28,12 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# backups (dump de dados — não versionar)
+backup-bolao-*.json
+
+# utilitários locais do Windows (não fazem parte do app)
+*.cmd
+
 # vercel
 .vercel
 

@@ -22,7 +22,8 @@ export type Jogo = {
   kickoff: string
   gols_casa: number | null
   gols_fora: number | null
-  status: 'agendado' | 'encerrado'
+  status: 'agendado' | 'ao_vivo' | 'encerrado'
+  api_match_id: number | null
 }
 
 export type Palpite = {
