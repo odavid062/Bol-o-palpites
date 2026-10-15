@@ -139,9 +139,18 @@ export default function PalpitesClient({ profile, rodadas, palpitesIniciais }: P
                     </div>
 
                     <div className="flex items-center justify-between mt-3">
-                      <span className="text-xs text-gray-400">
-                        {travado ? '🔒 Travado' : `⏰ Fecha às ${kickoffLocal}`}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        {jogo.status === 'ao_vivo' ? (
+                          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-semibold bg-red-100 text-red-700 animate-pulse">
+                            <span className="w-1.5 h-1.5 rounded-full bg-red-600"></span>
+                            Em andamento ({jogo.gols_casa ?? 0} × {jogo.gols_fora ?? 0})
+                          </span>
+                        ) : (
+                          <span className="text-xs text-gray-400">
+                            {travado ? '🔒 Travado' : `⏰ Fecha às ${kickoffLocal}`}
+                          </span>
+                        )}
+                      </div>
                       <div className="flex items-center gap-2">
                         {messages[jogo.id] && (
                           <span className={`text-xs ${messages[jogo.id] === 'Salvo!' ? 'text-green-600' : 'text-red-500'}`}>
